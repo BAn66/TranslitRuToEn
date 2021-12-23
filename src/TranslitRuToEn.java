@@ -2,14 +2,14 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class ConvertApp extends JFrame { //Наследуя от JFrame мы получаем всю функциональность окна
+public class TranslitRuToEn extends JFrame { //Наследуя от JFrame мы получаем всю функциональность окна
     String path = "ВЫБЕРЕТЕ ПУТЬ К ПАПКЕ";
     private JLabel pathToFolder;
     private JButton browse;
     private JButton convert;
     private  JFileChooser fileChooser;
 
-    public ConvertApp() {
+    public TranslitRuToEn() {
 
         super("Транслитерация из киррилицы в латиницу"); //Заголовок окна
         //setBounds(100, 100, 400, 100); //Если не выставить размер и положени то окно будет мелкое и незаметное
@@ -49,10 +49,10 @@ public class ConvertApp extends JFrame { //Наследуя от JFrame мы п�
                 fileChooser.setDialogTitle("Выбор директории");
                 // Определение режима - только каталог
                 fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-                int result = fileChooser.showOpenDialog(ConvertApp.this);
+                int result = fileChooser.showOpenDialog(TranslitRuToEn.this);
                 // Если директория выбрана, покажем ее в сообщении
                 if (result == JFileChooser.APPROVE_OPTION )
-                    JOptionPane.showMessageDialog(ConvertApp.this,
+                    JOptionPane.showMessageDialog(TranslitRuToEn.this,
                             fileChooser.getSelectedFile()); // всплывашка о выбранной папке
                      path = fileChooser.getSelectedFile().getPath(); //присваеваем путь переменной
                      updatePath(); //обновляем сведения в окне
@@ -65,7 +65,7 @@ public class ConvertApp extends JFrame { //Наследуя от JFrame мы п�
                 Convertation convertation = new Convertation(path);
                 convertation.setPath(path);
                 convertation.convert();
-                JOptionPane.showMessageDialog(ConvertApp.this,
+                JOptionPane.showMessageDialog(TranslitRuToEn.this,
                         "Транслитирация в выбранной папке закончена");
             }
         });
@@ -77,7 +77,7 @@ public class ConvertApp extends JFrame { //Наследуя от JFrame мы п�
     }
 
     public static void main(String[] args) {
-        ConvertApp app = new ConvertApp(); //Создаем экземпляр нашего приложения
+        TranslitRuToEn app = new TranslitRuToEn(); //Создаем экземпляр нашего приложения
         app.setVisible(true); //С этого момента приложение запущено!
         //app.pack(); //Эта команда подбирает оптимальный размер в зависимости от содержимого окна
     }
