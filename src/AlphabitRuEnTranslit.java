@@ -40,5 +40,7 @@ public class AlphabitRuEnTranslit {
         alphabit.put("я", "ya");
     }
 
-
+    public HashMap<String, String> getAlphabit() {
+        return alphabit;
+    }
 }
